@@ -1,0 +1,7 @@
+[Cursor] React UI: lock after submit, right-click edit, drag, no-overlap
+
+- Frontend refactor to React via CDN; new canvas interactions
+- Lock user node after submit; right-click menu: 编辑/重新提问
+- Non-overlapping auto-placement; draggable headers
+- Minor style polish; debug toolbar
+- Add Playwright setup and automated UI check; saved screenshots

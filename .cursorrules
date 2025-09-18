@@ -104,15 +104,18 @@ If needed, you can further use the `web_scraper.py` file to scrape the web page 
 
 # Scratchpad
 
-Task: Web app step 3.1 — create user node on double-click, send to API, render AI node
+Task: Fix UI issues — prevent duplicate submit, avoid node overlap, React refactor
 
 Plan:
-[X] Define tests: API contract for POST `/api/ask`; frontend availability
-[ ] Implement FastAPI backend with `/api/ask` calling `gpt-5-mini`
-[ ] Implement static frontend: double-click creates user node; send to API; render AI node
-[ ] Verify tests pass and polish
+[X] Backend already implements `/api/ask` with OpenAI Responses
+[ ] Refactor frontend to React; preserve tests and static serving
+[ ] Lock user node after submit; enable right-click to edit/resent
+[ ] Implement non-overlapping auto-placement and draggable nodes
+[ ] Visual polish with React and modern styles
 
 Notes:
-- Use `openai` Responses API with `model: gpt-5-mini`. Return `{"answer": text}`.
-- Serve static `index.html` and `app.js` from `app/static/`. Root `/` serves index.
-- Keep API key via `OPENAI_API_KEY`; include debug logs to stderr.
+- Use CDN React 18 + ReactDOM and inline ES module for simplicity
+- Keep node data model: id, type (user|ai), text, x, y, locked
+- Add right-click context menu on user nodes: 编辑、重新提问
+- Use simple greedy layout to avoid overlap; bump positions if collision
+- Add drag interaction with pointer events; update x,y during drag
